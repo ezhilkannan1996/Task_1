@@ -1,0 +1,54 @@
+﻿@model string_split.Models.Entities
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@using (@Html.BeginForm("Index", "Home", FormMethod.Post))
+{
+    <div class="text-center">
+        <div class="form-group">
+            @Html.DropDownListFor(m=>m.primaryData,(IEnumerable<SelectListItem>)ViewBag.PrimData,"--Select--",new {@id="primaryData",@onchange="myFunction()"})
+            @*<select id="primaryData">
+        <option value="One | Two | Three">One | Two | Three</option>
+        <option value="1 | 2 | 3">1 | 2 | 3</option>
+        <option value="Male | Jr.Developer | Chennai">Male | Jr.Developer | Chennai</option>
+        </select>*@
+        </div>
+        <br />
+        <div>
+            @Html.TextBoxFor(m=>m.dataOne,new{id="One"})
+        </div>
+        <br />
+        <div>
+            @Html.TextBoxFor(m=>m.dataTwo,new{id="Two"})
+        </div>
+        <br />
+        <div>
+            @Html.TextBoxFor(m=>m.dataThree,new{id="Three"})
+        </div>
+        <br />
+        <div class="form-group">
+            <input type="submit" class="btn btn-primary" />
+        </div>
+    </div>
+
+    @section Scripts{
+    <link rel="stylesheet" href="http://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" />
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript" src="http://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            $("#primaryData").select2();
+        });
+        function myFunction() {
+            var x = document.getElementById("primaryData").value;
+            //alert("You selected: " + x);
+            var y = x.split(' | ');
+            //alert(y[0]);
+            document.getElementById("One").value=y[0];
+            document.getElementById("Two").value=y[1];
+            document.getElementById("Three").value=y[2];
+        }
+    </script>
+}
+}
