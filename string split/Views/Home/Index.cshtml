@@ -6,7 +6,10 @@
 @using (@Html.BeginForm("Index", "Home", FormMethod.Post))
 {
     <div class="text-center">
+        <h1>Data split using Javascript/Jquery</h1>
+        <br/>
         <div class="form-group">
+            Select A Data to split:
             @Html.DropDownListFor(m=>m.primaryData,(IEnumerable<SelectListItem>)ViewBag.PrimData,"--Select--",new {@id="primaryData",@onchange="myFunction()"})
             @*<select id="primaryData">
         <option value="One | Two | Three">One | Two | Three</option>
@@ -16,19 +19,22 @@
         </div>
         <br />
         <div>
+            First Index Value:
             @Html.TextBoxFor(m=>m.dataOne,new{id="One"})
         </div>
         <br />
         <div>
+            Second Index Value:
             @Html.TextBoxFor(m=>m.dataTwo,new{id="Two"})
         </div>
         <br />
         <div>
+            Third Index Value:
             @Html.TextBoxFor(m=>m.dataThree,new{id="Three"})
         </div>
         <br />
         <div class="form-group">
-            <input type="submit" class="btn btn-primary" />
+            <input type="submit" class="btn btn-primary" />(*Result will be in the next view)
         </div>
     </div>
 

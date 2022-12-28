@@ -1,15 +1,20 @@
 ﻿@model string_split.Models.Entities
-<h1>New View</h1>
+
     <div class="text-center">
-        <div>
+        <h1>Result View</h1>
+        <br />
+       <div>
+            First Data:
             @Html.TextBoxFor(m=>m.dataOne,new{id="One"})
         </div>
         <br />
         <div>
+            Second Data:
             @Html.TextBoxFor(m=>m.dataTwo,new{id="Two"})
         </div>
         <br />
         <div>
+            Third Data:
             @Html.TextBoxFor(m=>m.dataThree,new{id="Three"})
         </div>
     </div>
